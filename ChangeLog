@@ -1,3 +1,8 @@
+2005-08-04  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* gnl/gnltimeline.c: (gnl_timeline_dispose):
+	  fix a wrong unref, bin_remove unrefs already
+
 2005-06-21  Edward Hervey  <edward@fluendo.com>
 
 	* gnl/gnltimeline.c: (gnl_timeline_new): 

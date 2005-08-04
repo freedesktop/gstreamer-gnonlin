@@ -624,7 +624,6 @@ gnl_timeline_dispose (GObject *object)
   }
   gst_bin_remove (GST_BIN (timeline),
 		  GST_ELEMENT (timeline->timer));
-  gst_object_unref (GST_OBJECT (timeline->timer));
 
   G_OBJECT_CLASS (parent_class)->dispose (object);
 }
