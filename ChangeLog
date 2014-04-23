@@ -1,9 +1,29 @@
-=== release 1.2.0 ===
+=== release 1.2.1 ===
 
-2014-03-15  Thibault Saunier <tsaunier@gnome.org>
+2014-04-23  Thibault Saunier <tsaunier@gnome.org>
 
 	* configure.ac:
-	  releasing 1.2.0
+	  releasing 1.2.1
+
+2014-03-31 23:52:17 +0100  Tim-Philipp Müller <tim@centricular.com>
+
+	* .gitignore:
+	  .gitignore log files from autotools 'make check' test-driver
+
+2014-03-31 21:12:24 +0100  Tim-Philipp Müller <tim@centricular.com>
+
+	* tests/check/gnl/gnlcomposition.c:
+	  tests: pass 64-bit integers to 64-bit integer properties
+
+=== release 1.2.0 ===
+
+2014-03-16 12:49:23 +0100  Thibault Saunier <tsaunier@gnome.org>
+
+	* ChangeLog:
+	* NEWS:
+	* RELEASE:
+	* configure.ac:
+	  Release 1.2.0
 
 2014-02-28 09:36:24 +0100  Sebastian Dröge <sebastian@centricular.com>
 
