@@ -185,9 +185,11 @@ GST_START_TEST (test_change_object_start_stop_in_current_stack)
   gst_bin_add (GST_BIN (comp), source1);
   g_signal_emit_by_name (comp, "commit", TRUE, &ret);
 
+  g_mutex_lock (&pad_added_lock);
   g_cond_wait (&pad_added_cond, &pad_added_lock);
   fail_unless_equals_int (composition_pad_added, 2);
   fail_unless_equals_int (composition_pad_removed, 1);
+  g_mutex_unlock (&pad_added_lock);
 
   seek_events_before = seek_events;
 
