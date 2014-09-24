@@ -1,9 +1,17 @@
 
-Release notes for GNonLin Non-Linear Editing Plug-ins 1.2.0
+Release notes for GNonLin Non-Linear Editing Plug-ins 1.3.90
 
 
-The GStreamer team is proud to announce the first stable release
-in the 1.x stable series of GNonLin.
+The GStreamer team is pleased to announce the first release candidate of
+the stable 1.4 release series. The 1.4 release series is adding new features
+on top of the 1.0 and 1.2 series and is part of the API and ABI-stable 1.x
+release series of the GStreamer multimedia framework.
+
+
+This release candidate will hopefully shortly be followed by the stable 1.4.0
+release if no bigger regressions or bigger issues are detected, and enough
+testing of the release candidate happened. The new API that was added during
+the 1.3 release series is not expected to change anymore at this point.
 
 
 
@@ -32,11 +40,7 @@ Features of this release
 
 Bugs fixed in this release
      
-      * 596374 : GnlObject: " priority " property should be changed to int type for special -1 value
-      * 690881 : Replace AM_CONFIG_HEADER with AC_CONFIG_HEADERS in configure.ac
-      * 691041 : pitivi frozen when after drag'n drop to timeline: GstVideoTestSrc Internal data flow error
-      * 701015 : Using a g_thread for gnonlin pipeline update / forward eos on the streaming thread.
-      * 706831 : composition: Release objects lock while forwarding an event
+      * 596849 : gnlcomposition: Allow low-memory usage
 
 ==== Download ====
 
@@ -77,8 +81,8 @@ GNonLin is primarily used by PiTiVi (http://www.pitivi.org/) and Jokosher (http:
 Contributors to this release
     
       * Edward Hervey
+      * Mathieu Duponchelle
       * Sebastian Dröge
-      * Stefan Sauer
       * Thibault Saunier
       * Tim-Philipp Müller
  

@@ -1,9 +1,123 @@
-=== release 1.2.0 ===
+=== release 1.3.90 ===
 
-2014-03-15  Thibault Saunier <tsaunier@gnome.org>
+2014-09-24  Thibault Saunier <tsaunier@gnome.org>
 
 	* configure.ac:
-	  releasing 1.2.0
+	  releasing 1.3.90
+
+2014-08-06 10:23:56 +0100  Tim-Philipp Müller <tim@centricular.com>
+
+	* tests/check/gnl/gnlcomposition.c:
+	  tests: fix 'Attempt to unlock mutex that was not locked' in gnlcomposition test
+	  Locking is all a bit weird in this test, but at least
+	  it doesn't abort any longer.
+
+2014-08-01 10:43:18 +0200  Edward Hervey <edward@collabora.com>
+
+	* Makefile.am:
+	* common:
+	  Makefile: Add usage of build-checks step
+	  Allows building checks without running them
+
+2014-06-25 17:51:02 +0100  Tim-Philipp Müller <tim@centricular.com>
+
+	* configure.ac:
+	  configure: lower GLib requirement to 2.32
+	  We don't actually require 2.34, and 2.32 is what the
+	  other modules currently require.
+
+2014-06-24 12:17:51 +0200  Thibault Saunier <tsaunier@gnome.org>
+
+	* gnl/gnlobject.c:
+	  gnlobject: Commit object in READY_TO_PAUSED
+	  Making it possible to use Gnl with gst-launch (with patch from #732149)
+
+2014-05-19 13:12:56 +0200  Thibault Saunier <tsaunier@gnome.org>
+
+	* gnl/gnlcomposition.c:
+	* tests/check/gnl/gnlcomposition.c:
+	  composition: Add a property defining deactivated elements state
+	  In the composition many elements are not used, until now, they were
+	  always set to the PAUSED state though it makes sense to be able to
+	  do gapless playback it is sometimes not ideal to preserve memory
+	  usage and it means the more children the composition has the more
+	  threads are used and it is very simple to reach the kernel hard
+	  limit number of threads. In order to avoid that to happen, we set
+	  default state of unused thread to READY and we add a property to
+	  the composition so that users can override that default behaviour.
+	  + Make sure we send "stream-start" again when changing our ghostpad to
+	  avoid "Data flow before stream-start assertion"
+	  + Fix unit tests, do not check refcount when changing state as it can
+	  vary.
+	  https://bugzilla.gnome.org/show_bug.cgi?id=596849
+
+2014-05-21 10:53:53 +0200  Sebastian Dröge <sebastian@centricular.com>
+
+	* common:
+	  Automatic update of common submodule
+	  From 211fa5f to 1f5d3c3
+
+2014-05-07 16:18:40 +0200  Mathieu Duponchelle <mathieu.duponchelle@opencreed.com>
+
+	* gnl/gnlcomposition.c:
+	  composition: Drop buffers until we get seeked
+	  Make sure we don't let buffers pass before our entry
+	  got correctly seeked and had a segment when updating
+	  the pipeline
+
+2014-05-06 16:37:24 +0200  Thibault Saunier <tsaunier@gnome.org>
+
+	* tests/check/gnl/common.c:
+	* tests/check/gnl/common.h:
+	* tests/check/gnl/seek.c:
+	  tests: Add a flag about whether to keep expected segments or not
+	  Most test rely on the common helper to handles that,
+	  but for seeking tests it does not make sense to handle it that way (as
+	  in gnlcomposition we send 2 seeks when we get seek and thus we can received
+	  2 times the same segment)
+
+2014-05-06 15:37:41 +0200  Thibault Saunier <tsaunier@gnome.org>
+
+	* tests/check/gnl/common.c:
+	* tests/check/gnl/seek.c:
+	  tests: By design, we can get twice the same GstSegment out
+	  Handle it in the tests as it is not critical
+
+2014-05-06 09:37:31 +0200  Thibault Saunier <tsaunier@gnome.org>
+
+	* tests/check/gnl/seek.c:
+	  tests:seek: Wait for ASYNC_DONE between seek execution
+
+2014-05-03 10:17:48 +0200  Sebastian Dröge <sebastian@centricular.com>
+
+	* common:
+	  Automatic update of common submodule
+	  From bcb1518 to 211fa5f
+
+2014-03-31 23:52:17 +0100  Tim-Philipp Müller <tim@centricular.com>
+
+	* .gitignore:
+	  .gitignore log files from autotools 'make check' test-driver
+
+2014-03-31 21:12:24 +0100  Tim-Philipp Müller <tim@centricular.com>
+
+	* tests/check/gnl/gnlcomposition.c:
+	  tests: pass 64-bit integers to 64-bit integer properties
+
+2014-03-16 12:50:24 +0100  Thibault Saunier <tsaunier@gnome.org>
+
+	* configure.ac:
+	  Back to development
+
+=== release 1.2.0 ===
+
+2014-03-16 12:49:23 +0100  Thibault Saunier <tsaunier@gnome.org>
+
+	* ChangeLog:
+	* NEWS:
+	* RELEASE:
+	* configure.ac:
+	  Release 1.2.0
 
 2014-02-28 09:36:24 +0100  Sebastian Dröge <sebastian@centricular.com>
 
